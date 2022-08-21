@@ -14,7 +14,7 @@
 
 - This also applies to the image element which has to self-close as follows: `<img src="pics/192940u73.jpg" alt="" />`
 
-- JSX elements, though very similar to HTML elements, are actually JavaScript expressions, so they can be passes to variables, i.e: `const navBar = <nav>This is a nav bar</nav>;`
+- JSX elements, though very similar to HTML elements, are actually JavaScript expressions. They can be passes to variables, i.e: `const navBar = <nav>This is a nav bar</nav>;`
 
 ---
 # Attributes
@@ -37,7 +37,7 @@
 
 - This is because JSX gets translated into JavaScript, and `class` is a reserved word in JavaScript. When JSX is rendered, the JSX `className` attributes are automatically rendered as `class` attributes in the DOM.
 
-- You can nest JSX elements, but all nested elements must be siblings with one common parent.
+- You can nest JSX elements, but all nested elements must have one common parent.
 
 - If a JSX expression takes up more than one line, then you must wrap the multi-line JSX expression in parentheses `( )` i.e:
 
@@ -51,7 +51,7 @@
 
 - Note that the `<h1>` and `<a>` elements are siblings and children of one parent.
 
-- You can also have "fragments" as parents, which are empty opening and closing tags as follows:
+- You can also have "fragment tags" as a parent. These are empty opening and closing tags as follows:
 
 >  const chunkOfCode = (  
 > `<>`  
@@ -75,7 +75,7 @@
 
 - To render a JSX expression means to make it appear onscreen.
 
-- Remember that JSX is case sensitive and follows other conventions different from HTML and JavaScript, such as starting function with a captial letter.
+- Remember that JSX is case sensitive and follows conventions that are different from HTML and JavaScript, such as starting the name of a function with a captial letter, if that function is to be used as a component.
 
 - The following JSX method is used to render content / components to the browser.
 
@@ -83,7 +83,9 @@
 
 - `ReactDOM` references the React library.
 
-- The render method takes two parameters. The first parameter is the JSX content to be rendered as HTML in the browser. The second parameter indicates where the JSX is to be rendered. In the example above, the `<h1>Hello World</h1>` will be rendered to the HTML element with `id="app"`, which is typically in the `index.html` file.
+- The render method takes two parameters. The first parameter is the JSX content to be rendered as HTML in the browser. The second parameter indicates where the JSX is to be rendered. In the example above, the `<h1>Hello World</h1>` is the first parameter and will be rendered to the HTML element with `id="app"`, which is referenced by the second parameter.
+
+- Components are typically rendered to a single `index.html` file.
 
 - The first argument in the `render` method can also be a variable being referenced, i.e:
 
@@ -105,7 +107,7 @@
 
 - Components are reusable functions that build the React app within the HTML file. Components are exported so they can be used and reused.
 
-- From [W3Shcools](https://www.w3schools.com/react/react_components.asp#:~:text=Components%20are%20independent%20and%20reusable,will%20concentrate%20on%20Function%20components.), components are defined as:
+- From [W3Shcools](https://www.w3schools.com/react/react_components.asp#:~:text=Components%20are%20independent%20and%20reusable,will%20concentrate%20on%20Function%20components.), components are defined as follows:
 > Components are independent and reusable bits of code. They serve the same purpose as JavaScript functions, but work in isolation and return HTML.
 
 > Components come in two types, Class components and Function components.
@@ -129,10 +131,10 @@
 
 - Notice also that when used in the `render` method, the component name is treated as a custom self-closing element, i.e: `<MyComponentClass />`
 
-- Using **function** based syntax instead, to create components, is the preferred method because of its simplified syntax, using much less code, and are easier to understand, i.e:
+- Using **function** based syntax instead, to create components, is the preferred method because of its simplified syntax, using much less code, and being easier to understand, i.e:
 
 > `function Car() {`  
->&nbsp;&nbsp;&nbsp;&nbsp;`return <h2>Hi, I am a Car!</h2>;`  
+>&nbsp;&nbsp;&nbsp;&nbsp;`return <h2>I am a Car.</h2>;`  
 >`}`
 
 - In both examples, classes and functions, the component has to be rendered:
@@ -147,8 +149,8 @@
 > `const root = ReactDOM.createRoot(document.getElementById('root'));`  
 > `root.render(<Car />);`
 
-### A note about const versus let variable keywords:
-> As a general rule, variables in React should use the `const` keyword instead of `let` unless the data value if the variable is being direcly manipulated. In that case `let` should be used. For example, a conditional is being defined on the variable using an `if` statement, or `for` loop. Use `let` instead. 
+### A note about `const` versus `let` variable keywords:
+> As a general rule, variables in React should use the `const` keyword instead of `let` unless the data value of the variable is being direcly manipulated. In that case `let` should be used. For example, a conditional is being defined on the variable using an `if` statement, or `for` loop. Then use `let` instead. 
 
 - Components are separate React functions, that can be thought of as "parts" of the page, or "templates".
 
@@ -158,9 +160,9 @@
 ---
 # App.js
 
-- `App.js` (note the cap "A" which has to be applied at the function naming stage) is the `root component`. It's the first component that gets rendered to the DOM. The root component is at the top of the `component tree`. All other components are nested inside the root component.
+- In the diagram below (need to credit the author of this image) `App.js` (note the cap "A" which has to be applied at the function naming stage) is the `root component`. It's the first component that gets rendered to the DOM. The root component is at the top of the `component tree`. All other components are nested inside the root component.
 
 - Rembember that components in a JSX function can only have one parent, and `<>...</>` fragments can be used instead of full HTML (JSX) elements: 
 <img src="images/component-tree-diagram.png">
 
-- NOTE: If you want to comment something in JSX you need to use JavaScript comments inside of Curly braces like {/*comment here*/}. It is a regular /* Block Comments */ , but need to be wrapped in curly braces.
+- **NOTE**: If you want to comment something in JSX, you use JavaScript comments inside of Curly braces like this `{/*comment here*/}`. It is the regular JavaScript multiline opening and closing comment tags  `/* Multiline JS Comment */` , but wrapped in curly braces.
