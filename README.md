@@ -4,36 +4,53 @@
 
 - The JSX acronym can stand for "JavaScript Syntax Extension", see: [reactenlightenment.com](https://www.reactenlightenment.com/react-jsx.html)
 
-- JSX can also stand for "JavaScript XML".
+- JSX can also stand for "JavaScript XML", see [W3Schools](https://www.w3schools.com/react/react_jsx.asp#:~:text=JSX%20stands%20for%20JavaScript%20XML,to%20write%20HTML%20in%20React.)
 
 - JSX mixes Javascript and what looks very similar to, but is not, HTML. 
 
-- JSX can not be rendered directly to the browser and must be compiled (by Babel) to JavaScript so that it runs in the browser.
+- JSX can not be rendered directly to the browser and must be compiled (by [Babel](https://medium.com/swlh/the-role-of-babel-in-react-dbcf78c69125)) to JavaScript so that it runs in the browser.
 
-- In HTML, elements can come as singleton tags without being self closed, for example: the `input` element in HTML looks like this: `<input>`. There is no closing tag. However, any singlton JSX element must be self-closed. If not, then an error will be generated. So `<input>` must be written as `<input />`
+- In HTML, elements can come as singleton tags without being self-closed, for example: the `input` element in HTML looks like this: `<input>`. There is no closing tag. However in JSX, any singlton element must be self-closed. If not, then an error will be generated. So the HTML `<input>` element must be written as `<input />` in JSX. It must end with the forward slash and closing angle bracket.
 
 - This also applies to the image element which has to self-close as follows: `<img src="pics/192940u73.jpg" alt="" />`
 
-- JSX elements, though very similar to HTML elements, are actually JavaScript expressions. They can be passes to variables, i.e: `const navBar = <nav>This is a nav bar</nav>;`
+- JSX elements, though very similar to HTML elements, are actually JavaScript expressions. They can be passed to variables, i.e: `const navBar = <nav>This is a nav bar</nav>;`. In this example the entire line is a JavaScript expression.
 
 ---
 # Attributes
 
-- JSX elements can have attributes like HTML elements can, i.e:
+- JSX elements can have attributes which are similat to the attributes of HTML elements. 
+
+- There is a conceptual connection in the similarity of HTML attributes, and what are known as React "props" (properties). See [this article](https://sawyerh.medium.com/how-react-props-relate-to-html-attributes-and-js-functions-6785a89a299#:~:text=In%20React%2C%20%E2%80%9Cprops%E2%80%9D%20is,element%20that%20accepts%20custom%20attributes.). See also [this](https://www.w3schools.com/react/react_props.asp) from W3Schools.
+
+- React "props" combine both the concepts of HTML attributes and JavaScript Functions.
+
+- In the examples below the similarity to attributes is shown: i.e:
 
 > `<a href='http://www.example.com'>Welcome to the Web</a>;`
  
-- Note the semi-colons at the end of the expressions.
+- Note the semi-colons at the end of the JSX expressions.
 
 > `const title = <h1 id='title'>Introduction to React.js: Part I</h1>; `
 
 > `const panda = <img src='images/panda.jpg' alt='panda' width='500px' height='500px' />;`
 
-- However, in JSX we can not use the `class` attribute. Instead we have to apply `className` as an attribute. 
+- Explicity we create attributes / props as follows:
 
-- For example:
-`<h1 class="big">Hey</h1>` in JSX would be
-`<h1 className="big">Hey</h1>`. Note the `className attribute` on the opening JSX `<h1>` element.
+> `function Car(props) {`  
+>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`return <h2>I am a { props.brand }!</h2>;`  
+>`}`
+>` `  
+>`const myElement = <Car brand="Ford" />;`
+- ## className attribute / prop
+
+- In JSX we can not use the `class` attribute. Instead we have to apply `className` as an attribute / prop. 
+
+- For example, the HTML element   
+`<h1 class="big">Hey</h1>`  
+in JSX would be  
+`<h1 className="big">Hey</h1>`  
+Note the `className` attribute on the opening JSX `<h1>` element.
 
 - This is because JSX gets translated into JavaScript, and `class` is a reserved word in JavaScript. When JSX is rendered, the JSX `className` attributes are automatically rendered as `class` attributes in the DOM.
 
@@ -104,6 +121,13 @@
 
 ---
 # COMPONENTS
+
+- A great article on React components by [Front End Masters](https://frontendmastery.com/posts/advanced-react-component-composition-guide/?ck_subscriber_id=1820057160).
+
+- From [Medium.com](https://sawyerh.medium.com/how-react-pro):
+>"A React component can be thought of as a custom HTML element that accepts custom attributes."
+
+- From [Mozilla Dev Network](https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Client-side_JavaScript_frameworks/React_getting_started); Components are 
 
 - Components are reusable functions that build the React app within the HTML file. Components are exported so they can be used and reused.
 
