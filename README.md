@@ -1,4 +1,4 @@
-# React-Notes-2
+# React-Notes-1
 
 # JSX
 
